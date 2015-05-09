@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>About <%= @name %></title>
+
+    <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+
+    <style>
+      #picture {
+        width: 50px;
+        margin: 10px;
+      }
+
+      .container {
+        max-width: 960px;
+      }
+
+    </style>
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="clearfix">
+        <img id="picture" src="http://railsgirls.com/images/railsgirls-sq.png" alt="railsgirls logo" class="pull-left"/>
+        <h1>My name is <%= @name %></h1>
+      </header>
+
+      <div class="row">
+
+        <div class="col-sm-8">
+          <p class="well">
+            <strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div class="col-sm-4">
+          <ul>
+            <li><strong>Age</strong> 28</li>
+            <li><strong>Location</strong> Ghent</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+
+      <div class="col-sm-6">
+        <h2>Hobbies</h2>
+
+        <ul class="list-group">
+          <% @hobbies.each_with_index do |hobby, i| %>
+            <li class="list-group-item <%= i < 1 ? '' : 'hide' %>">
+              <%= hobby %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-sm-6">
+        <h2>Languages</h2>
+        <ul class="list-group">
+          <% @languages.each_with_index do |language, i| %>
+            <li class="list-group-item <%= i < 2 ? '' : 'hide' %>">
+              <%= language %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#" class="show-more btn btn-primary btn-block">Show More</a>
+
+    <div class="row"
+      <p>
+        My facebook page is <a href="https://www.facebook.com/lien.vandensteen" target="blank">here</a>
+      </p>
+    </div>
+
+    <footer>
+      Created by <%= @name %> in <%= @year %>
+    </footer>
+    </div>
+
+    <script>
+      $("a.show-more").click(function() {
+        $(".list-group-item.hide").removeClass("hide");
+        $("a.show-more").addClass("hide");
+      });
+    </script>
+
+  </body>
+</html>
